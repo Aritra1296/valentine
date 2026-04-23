@@ -87,6 +87,7 @@ function App() {
         <button
           ref={noButtonRef}
           onMouseEnter={escapeButton}
+          onTouchStart={escapeButton}
           className="absolute px-10 py-3 rounded-full font-bold text-lg cursor-default select-none pointer-events-auto"
           style={{
             left: noCoords ? `${noCoords.x}px` : "-9999px",
