@@ -125,7 +125,7 @@ function App() {
         </div>
 
         <h1 className="text-3xl font-bold mb-8" style={{ color: "#f3e8ff" }}>
-          {name} will you be my valentine?
+          {name} will you be mine forever?
         </h1>
 
         <div className="flex gap-6 justify-center mb-6">
