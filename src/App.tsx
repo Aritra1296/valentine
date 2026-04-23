@@ -47,7 +47,8 @@ function App() {
             She said yes! 💖
           </h1>
           <p className="text-lg" style={{ color: "#e9d5ff" }}>
-            You just made everything perfect, {name}!
+            You just made everything perfect,{" "}
+            <span className="font-extrabold text-pink-200">{name}</span>!
           </p>
         </div>
       </div>
@@ -127,7 +128,8 @@ function App() {
         </div>
 
         <h1 className="text-3xl font-bold mb-8" style={{ color: "#f3e8ff" }}>
-          {name} will you be mine forever?
+          <span className="text-pink-200">{name}</span>, will you be mine
+          forever?
         </h1>
 
         <div className="flex gap-6 justify-center mb-6">
