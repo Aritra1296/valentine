@@ -45,7 +45,7 @@ function App() {
             She said yes! 💖
           </h1>
           <p className="text-lg" style={{ color: "#e9d5ff" }}>
-            You just made everything perfect, Dipan + {name}!
+            You just made everything perfect,{name}!
           </p>
         </div>
       </div>
