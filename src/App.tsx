@@ -1,14 +1,16 @@
-import { useState, useRef, useLayoutEffect } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import "./App.css";
 
 const PAD = 20;
 
 function App() {
-  const [noCoords, setNoCoords] = useState<{ x: number; y: number } | null>(null);
+  const [noCoords, setNoCoords] = useState<{ x: number; y: number } | null>(
+    null,
+  );
   const [answered, setAnswered] = useState<"yes" | null>(null);
   const noButtonRef = useRef<HTMLButtonElement>(null);
   const ghostRef = useRef<HTMLDivElement>(null);
-  const name = "nirali";
+  const name = "Baby";
 
   // Set initial No button position to match the ghost placeholder
   useLayoutEffect(() => {
@@ -33,7 +35,9 @@ function App() {
     return (
       <div
         className="min-h-screen flex items-center justify-center overflow-hidden"
-        style={{ background: "linear-gradient(135deg, #0f0c29, #302b63, #24243e)" }}
+        style={{
+          background: "linear-gradient(135deg, #0f0c29, #302b63, #24243e)",
+        }}
       >
         <div className="text-center p-12">
           <div className="text-8xl mb-6 animate-bounce">🥰</div>
@@ -41,7 +45,7 @@ function App() {
             She said yes! 💖
           </h1>
           <p className="text-lg" style={{ color: "#e9d5ff" }}>
-            You just made everything perfect, {name}!
+            You just made everything perfect, Dipan + {name}!
           </p>
         </div>
       </div>
@@ -51,7 +55,9 @@ function App() {
   return (
     <div
       className="min-h-screen flex items-center justify-center overflow-hidden"
-      style={{ background: "linear-gradient(135deg, #0f0c29, #302b63, #24243e)" }}
+      style={{
+        background: "linear-gradient(135deg, #0f0c29, #302b63, #24243e)",
+      }}
     >
       {/* Stars */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
@@ -74,7 +80,10 @@ function App() {
       </div>
 
       {/* No button in fixed overflow-hidden overlay — can never escape screen */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none" style={{ zIndex: 9999 }}>
+      <div
+        className="fixed inset-0 overflow-hidden pointer-events-none"
+        style={{ zIndex: 9999 }}
+      >
         <button
           ref={noButtonRef}
           onMouseEnter={escapeButton}
@@ -101,10 +110,16 @@ function App() {
           border: "1px solid rgba(255,255,255,0.15)",
         }}
       >
-        <div className="text-7xl mb-4" style={{ filter: "drop-shadow(0 0 20px rgba(249,168,212,0.8))" }}>
+        <div
+          className="text-7xl mb-4"
+          style={{ filter: "drop-shadow(0 0 20px rgba(249,168,212,0.8))" }}
+        >
           ❤️‍🔥
         </div>
-        <div className="text-2xl mb-6 tracking-widest" style={{ color: "#c084fc" }}>
+        <div
+          className="text-2xl mb-6 tracking-widest"
+          style={{ color: "#c084fc" }}
+        >
           ✦ ✦ ✦
         </div>
 
