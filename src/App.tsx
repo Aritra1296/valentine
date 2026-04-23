@@ -10,7 +10,9 @@ function App() {
   const [answered, setAnswered] = useState<"yes" | null>(null);
   const noButtonRef = useRef<HTMLButtonElement>(null);
   const ghostRef = useRef<HTMLDivElement>(null);
-  const name = "Baby";
+  const [name, setName] = useState("Baby");
+  const [draftName, setDraftName] = useState("");
+  const [showNameModal, setShowNameModal] = useState(false);
 
   // Set initial No button position to match the ghost placeholder
   useLayoutEffect(() => {
@@ -45,7 +47,7 @@ function App() {
             She said yes! 💖
           </h1>
           <p className="text-lg" style={{ color: "#e9d5ff" }}>
-            You just made everything perfect,{name}!
+            You just made everything perfect, {name}!
           </p>
         </div>
       </div>
@@ -130,7 +132,7 @@ function App() {
 
         <div className="flex gap-6 justify-center mb-6">
           <button
-            onClick={() => setAnswered("yes")}
+            onClick={() => setShowNameModal(true)}
             className="px-10 py-3 rounded-full font-bold text-lg shadow-lg transition transform hover:scale-110"
             style={{
               background: "linear-gradient(135deg, #ec4899, #a855f7)",
@@ -155,6 +157,47 @@ function App() {
           "No" seems a bit shy 💔
         </p>
       </div>
+
+      {showNameModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 text-slate-900">
+          <div className="w-full max-w-md rounded-3xl bg-white/95 p-8 shadow-2xl backdrop-blur-sm">
+            <h2 className="text-2xl font-bold mb-3">Almost there!</h2>
+            <p className="mb-6 text-slate-700">
+              What should I call you when we celebrate?
+            </p>
+            <input
+              value={draftName}
+              onChange={(event) => setDraftName(event.target.value)}
+              className="w-full rounded-2xl border border-slate-300 px-4 py-3 mb-4 text-lg outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-200"
+              placeholder="Enter your name"
+            />
+            <div className="flex flex-col gap-3 sm:flex-row sm:justify-end">
+              <button
+                type="button"
+                onClick={() => {
+                  setDraftName("");
+                  setShowNameModal(false);
+                }}
+                className="rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-100"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setName(draftName.trim() || "Baby");
+                  setAnswered("yes");
+                  setShowNameModal(false);
+                  setDraftName("");
+                }}
+                className="rounded-full bg-gradient-to-r from-pink-500 to-violet-600 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:brightness-110"
+              >
+                Confirm
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
